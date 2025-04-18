@@ -1,0 +1,10 @@
+include LICENSE
+include README.md
+include INSTALL.md
+include pyproject.toml
+include setup.py
+
+recursive-include examples *.py *.md
+recursive-include tests *.py
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib .DS_Store 

@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling", "tomli"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fastapi-mcp"
+version = "0.2.0"
+description = "Automatic MCP server generator for FastAPI applications - converts FastAPI endpoints to MCP tools for LLM integration"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Tadata Inc.", email = "itay@tadata.com"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP",
+    "Framework :: FastAPI",
+]
+keywords = ["fastapi", "openapi", "mcp", "llm", "claude", "ai", "tools", "api", "conversion", "modelcontextprotocol"]
+dependencies = [
+    "fastapi>=0.100.0",
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "mcp>=1.6.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.5.2",
+    "uvicorn>=0.20.0",
+    "httpx>=0.24.0",
+    "requests>=2.25.0",
+    "tomli>=2.2.1",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "ruff>=0.9.10",
+    "types-setuptools>=75.8.2.20250305",
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "pre-commit>=4.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/tadata-org/fastapi_mcp"
+Documentation = "https://github.com/tadata-org/fastapi_mcp#readme"
+"Bug Tracker" = "https://github.com/tadata-org/fastapi_mcp/issues"
+"PyPI" = "https://pypi.org/project/fastapi-mcp/"
+"Source Code" = "https://github.com/tadata-org/fastapi_mcp"
+"Changelog" = "https://github.com/tadata-org/fastapi_mcp/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["fastapi_mcp"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = "test_*.py"
